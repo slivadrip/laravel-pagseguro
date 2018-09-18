@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use Session;
 
 class StoreController extends Controller
 {
-    
     public function index(Product $product)
     {
         $products = $product->all();
@@ -17,7 +17,6 @@ class StoreController extends Controller
     }
     
     
-     
     public function cart()
     {
         $title = 'Meu Carrinho de Compras!';
@@ -28,8 +27,8 @@ class StoreController extends Controller
         
         return view('store.cart.cart', compact('title', 'cart', 'products'));
     }
-
-      
+    
+    
     public function methodPayment()
     {
         $title = 'Escolha o metodo de pagamento';
@@ -37,4 +36,17 @@ class StoreController extends Controller
         return view('store.cart.method-payment', compact('title'));
     }
 
+    public function paymentBillet()
+    {
+        $title = 'Pagamento por boleto';
+        
+        return view('store.cart.payment-billet', compact('title'));
+    }
+
+    public function paymentCard()
+    {
+        $title = 'Pagamento por cartão';
+        
+        return view('store.cart.payment-card', compact('title'));
+    }
 }

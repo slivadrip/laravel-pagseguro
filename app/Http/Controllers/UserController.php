@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Models\Order;
 
 class UserController extends Controller
 {
@@ -59,5 +60,29 @@ class UserController extends Controller
         Auth::logout();
         
         return redirect()->route('home');
+    }
+    
+    
+    public function myOrders(Order $order)
+    {
+        $title = 'Meus Pedidos';
+        
+        $orders = $order->user()->get();
+        
+        return view('store.orders.orders', compact('title', 'orders'));
+    }
+    
+    
+    public function detailsOrder(Order $order, $reference)
+    {
+        $order = $order->user()->where('reference', $reference)->get()->first();
+        if (!$order)
+            return redirect()->back();
+        
+        $title = "Detalhes do pedido {$order->id}";
+        
+        $products = $order->products()->get();
+        
+        return view('store.orders.products', compact('title', 'order', 'products'));
     }
 }

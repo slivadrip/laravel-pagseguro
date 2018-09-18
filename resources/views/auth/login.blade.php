@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container text-center">
+<div class="col-md-offset-3 col-md-6">
+
+
     <h1 class="title">Login</h1>
 
     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -32,11 +35,14 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary botao-login">
                 Login
             </button>
 
-            <a class="btn btn-link" href="{{ route('password.request') }}">
+       
+        </div>
+        <div class="form-group">
+        <a class="btn btn-link" href="{{ route('password.request') }}">
                 Recuperar a Senha?
             </a>
             | 
@@ -45,5 +51,7 @@
             </a>
         </div>
     </form>
+</div>
+
 </div>
 @endsection

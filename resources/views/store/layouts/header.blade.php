@@ -9,8 +9,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="{{route('home')}}">
-            <img src="{{url('assets/imgs/logo-especializati.png')}}" alt="Curso de Laravel com PagSeguro" class="logo">
+        <a class="navbar-brand logo" href="{{route('home')}}">
+            LOGO
         </a>
     </div>
 
@@ -36,7 +36,7 @@
           <ul class="dropdown-menu">
             <li><a href="{{route('profile')}}">Meu Perfil</a></li>
             <li><a href="{{route('password')}}">Minha Senha</a></li>
-            <li><a href="#">Meus Pedidos</a></li>
+            <li><a href="{{route('my.orders')}}">Meus Pedidos</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{route('logout')}}">Sair</a></li>
           </ul>

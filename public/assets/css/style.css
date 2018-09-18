@@ -3,8 +3,8 @@ img.logo{
     float: left;
 }
 .menu-header{
-    background: #80bc12;
-    border-color: #75a914;
+    background: #2196F3;
+    border-color: #2196F3;
     border-radius: 0;
 }
 
@@ -12,7 +12,8 @@ img.logo{
 .title{
     font: 800 2em "Open Sans";
     margin: 20px 4px;
-    color: #80bc12;
+    color: #2196F3;
+    text-align: center;
 }
 .product{
     text-align: center;
@@ -25,14 +26,14 @@ img.logo{
     text-transform: uppercase;
 }
 .product a{
-    background: #49c659;
+    background: #673AB7;
     color: #FFF;
     text-decoration: none;
     padding: 6px 24px;
     max-width: 100%;
 }
 .product a:hover{
-    background: #378842;
+    background: #2196f3;
 }
 .img-cart{
     max-width: 40px;
@@ -41,7 +42,7 @@ img.logo{
     float: right;
     padding: 20px;
     font: 600 2.2em "Open Sans";
-    background: #80bc12;
+    background: #2196F3;
     color: #FFF;
 }
 .total-cart span{}
@@ -62,12 +63,43 @@ img.logo{
 }
 .cart-action-item{
     font: 800 2em "Open Sans";
-    color: #80bc12;
+    color: #2196F3;
 }
 .btn-form{
-    background: #80bc12;
+    background: #2196F3;
     color: #FFF;
     text-transform: uppercase;
     width: 100%;
 }
 .form-custom{margin-bottom: 50px;}
+
+.botao-login{
+    padding-left: 40px;
+    padding-right: 40px;
+    text-transform: uppercase;
+}
+
+.botao-cadastrar{
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    background: #2196F3 !important;
+    border-color: #2196F3 !important;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: 700;
+    color: white !important;
+}
+
+.botao-pagamento{
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    background: #2196F3;
+    font-weight: 600;
+    border-color: #2196F3;
+}

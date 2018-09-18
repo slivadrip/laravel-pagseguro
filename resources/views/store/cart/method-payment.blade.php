@@ -3,59 +3,19 @@
 @section('content')
 <h1 class="title">Escolha o meio de pagamento</h1>
 
-<a href="#" id="payment-billet">Boleto</a>
-{!! Form::open(['id' => 'form']) !!}
-{!! Form::close() !!}
+<div class="text-center">
+    <div class="col-md-6">
+    	<a href="{{ route('payment.billet') }}">
+	        <img src="{{url('assets/imgs/billet.png')}}" alt="Boleto" style="max-width: 100px;">
+	        <p>Boleto</p>
+	    </a>
+    </div>
+    <div class="col-md-6">
+    	<a href="{{ route('payment.card') }}">
+	        <img src="{{url('assets/imgs/credit-card.png')}}" alt="Cartão" style="max-width: 100px;">
+	        <p>Cartão</p>
+	    </a>
+    </div>
+</div>
 
 @endsection
-
-@push('scripts')
-<!--URL PagSeguro Transparent-->
-<script src="{{config('pagseguro.url_transparent_js')}}"></script>
-
-<script>
-    $(function(){
-        $("#payment-billet").click(function(){
-            setSessionId();
-            
-            return false;
-        });
-    });
-    
-    function setSessionId()
-    {
-        var data = $('form#form').serialize();
-
-        $.ajax({
-            url: "{{route('pagseguro.code.transparent')}}",
-            method: "POST",
-            data: data
-        }).done(function(data){
-            console.log(data);
-            PagSeguroDirectPayment.setSessionId(data);
-            paymentBillet();
-        }).fail(function(){
-            alert("Fail request 1... :-(");
-        });
-    }
-    
-    function paymentBillet()
-    {
-        var sendHash = PagSeguroDirectPayment.getSenderHash();
-
-        var data = $('#form').serialize()+"&sendHash="+sendHash;
-
-        $.ajax({
-            url: "{{route('pagseguro.billet')}}",
-            method: "POST",
-            data: data
-        }).done(function(url){
-            console.log(url);
-
-            location.href=url;
-        }).fail(function(){
-            alert("Fail request 2... :-(");
-        });
-    }
-</script>
-@endpush

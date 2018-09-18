@@ -27,7 +27,7 @@ trait PagSeguroTrait
         foreach ($itemsCart as $item) {
             $items["itemId{$posistion}"]            = $item['item']->id;
             $items["itemDescription{$posistion}"]   = $item['item']->description;
-            $items["itemAmount{$posistion}"]        = "{$item['item']->price}0";
+            $items["itemAmount{$posistion}"]        = number_format($item['item']->price, 2, '.', '');
             $items["itemQuantity{$posistion}"]      = $item['qtd'];
             
             $posistion++;
@@ -73,7 +73,34 @@ trait PagSeguroTrait
             'shippingAddressPostalCode'     => $this->user->postal_code,
             'shippingAddressCity'           => $this->user->city,
             'shippingAddressState'          => $this->user->state,
-            'shippingAddressCountry'        => $this->user->country,
+            'shippingAddressCountry'        => 'BRL',
+        ];
+    }
+
+
+    public function getCreditCard($holderName)
+    {
+        return [
+            'creditCardHolderName'      => $holderName,
+            'creditCardHolderCPF'       => $this->user->cpf,
+            'creditCardHolderBirthDate' => '01/01/1900',
+            'creditCardHolderAreaCode'  => '99',
+            'creditCardHolderPhone'     => '99999999',
+        ];
+    }
+
+
+    public function billingAddress()
+    {
+        return [
+            'billingAddressStreet'      => $this->user->street,
+            'billingAddressNumber'      => $this->user->number,
+            'billingAddressComplement'  => $this->user->complement,
+            'billingAddressDistrict'    => $this->user->district,
+            'billingAddressPostalCode'  => $this->user->postal_code,
+            'billingAddressCity'        => $this->user->city,
+            'billingAddressState'       => $this->user->state,
+            'billingAddressCountry'     => 'BRL',
         ];
     }
 }

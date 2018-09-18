@@ -5,7 +5,7 @@ img{max-width: 100%;}
     color: #FFF;
 }
 .dropdown-menu{
-    background: #80bc12;
+    background: #673AB7;
     border-radius: 0;
     box-shadow: none;
 }
@@ -17,7 +17,7 @@ img{max-width: 100%;}
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: #FFF;
-    background-color: #80bc12;
+    background-color: #673AB7;
 }
 .form-control{
     border-radius: 0;
